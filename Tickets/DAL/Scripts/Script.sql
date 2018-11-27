@@ -1,0 +1,2 @@
+Create database TicketDb
+go
