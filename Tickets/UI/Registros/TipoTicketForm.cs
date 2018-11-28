@@ -75,6 +75,7 @@ namespace Tickets.UI.Registros
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+            MyErrorProvider.Clear();
             Limpiar();
         }
 
@@ -93,7 +94,13 @@ namespace Tickets.UI.Registros
             tipoTicket = LlenaClase();
 
             if (TipoTicketIdNumericUpDown.Value == 0)
+            {
                 Paso = TipoTicketBLL.Guardar(tipoTicket);
+
+                MessageBox.Show("Guardado", "Exito",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             else
             {
                 int id = Convert.ToInt32(TipoTicketIdNumericUpDown.Value);
@@ -102,6 +109,9 @@ namespace Tickets.UI.Registros
                 if (tipoTicket != null)
                 {
                     Paso = TipoTicketBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado", "Exito",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -110,8 +120,6 @@ namespace Tickets.UI.Registros
 
             if (Paso)
             {
-                MessageBox.Show("Guardado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
             }
 
@@ -137,6 +145,24 @@ namespace Tickets.UI.Registros
             }
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void LugarTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void LugarTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DescripcionTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

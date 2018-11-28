@@ -75,6 +75,7 @@ namespace Tickets.UI.Registros
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+            MyErrorProvider.Clear();
             Limpiar();
         }
 
@@ -93,7 +94,11 @@ namespace Tickets.UI.Registros
             cliente = LlenaClase();
 
             if (ClienteIdNumericUpDown.Value == 0)
+            {
                 Paso = ClienteBLL.Guardar(cliente);
+                MessageBox.Show("Guardado", "Exito",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }                
             else
             {
                 int id = Convert.ToInt32(ClienteIdNumericUpDown.Value);
@@ -102,6 +107,8 @@ namespace Tickets.UI.Registros
                 if (cliente != null)
                 {
                     Paso = ClienteBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado", "Exito",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -110,8 +117,6 @@ namespace Tickets.UI.Registros
 
             if (Paso)
             {
-                MessageBox.Show("Guardado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
             }
 
@@ -137,6 +142,43 @@ namespace Tickets.UI.Registros
             }
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void TelefonoMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void TelefonoMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+
+            e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
+
+        private void NombresTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NombresTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

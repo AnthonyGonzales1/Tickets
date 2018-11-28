@@ -95,8 +95,6 @@ namespace Tickets.UI.Registros
         {
             VentaTicketIdNumericUpDown.Value = 0;
             FechaDateTimePicker.Value = DateTime.Now;
-            ClienteComboBox.SelectedIndex = 0;
-            TicketComboBox.SelectedIndex = 0;
             CantidadTextBox.Clear();
             PrecioTextBox.Clear();
             ImporteTextBox.Clear();
@@ -309,6 +307,9 @@ namespace Tickets.UI.Registros
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+            MyErrorProvider.Clear();
+            ClienteComboBox.Text = ("");
+            TicketComboBox.Text = ("");
             Limpiar();
         }
 
@@ -405,6 +406,13 @@ namespace Tickets.UI.Registros
                 LlenarImporte();
             }
             CambiarPrecio();
+        }
+
+        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+
+            e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
         }
     }
 }

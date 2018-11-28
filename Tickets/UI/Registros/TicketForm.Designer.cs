@@ -61,6 +61,7 @@
             // 
             // GuardarButton
             // 
+            this.GuardarButton.BackgroundImage = global::Tickets.Properties.Resources.tickets_icon;
             this.GuardarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.GuardarButton.Location = new System.Drawing.Point(139, 210);
             this.GuardarButton.Name = "GuardarButton";
@@ -98,6 +99,8 @@
             this.CantidadTextBox.Name = "CantidadTextBox";
             this.CantidadTextBox.Size = new System.Drawing.Size(75, 20);
             this.CantidadTextBox.TabIndex = 58;
+            this.CantidadTextBox.TextChanged += new System.EventHandler(this.CantidadTextBox_TextChanged);
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
             // 
             // NombreEventoTextBox
             // 
@@ -164,6 +167,7 @@
             this.PrecioTextBox.Name = "PrecioTextBox";
             this.PrecioTextBox.Size = new System.Drawing.Size(78, 20);
             this.PrecioTextBox.TabIndex = 61;
+            this.PrecioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioTextBox_KeyPress);
             // 
             // label5
             // 
@@ -182,6 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.tickets_icon;
             this.ClientSize = new System.Drawing.Size(326, 256);
             this.Controls.Add(this.PrecioTextBox);
             this.Controls.Add(this.label5);
@@ -197,6 +202,7 @@
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.BuscarButton);
+            this.DoubleBuffered = true;
             this.Name = "TicketForm";
             this.Text = "TicketForm";
             ((System.ComponentModel.ISupportInitialize)(this.TicketIdNumericUpDown)).EndInit();

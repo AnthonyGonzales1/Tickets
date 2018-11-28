@@ -96,6 +96,8 @@
             this.NombresTextBox.Name = "NombresTextBox";
             this.NombresTextBox.Size = new System.Drawing.Size(157, 20);
             this.NombresTextBox.TabIndex = 5;
+            this.NombresTextBox.TextChanged += new System.EventHandler(this.NombresTextBox_TextChanged);
+            this.NombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombresTextBox_KeyPress);
             // 
             // TelefonoMaskedTextBox
             // 
@@ -104,6 +106,8 @@
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(77, 20);
             this.TelefonoMaskedTextBox.TabIndex = 6;
+            this.TelefonoMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TelefonoMaskedTextBox_MaskInputRejected);
+            this.TelefonoMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoMaskedTextBox_KeyPress);
             // 
             // DeudaTextBox
             // 
@@ -165,6 +169,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.tickets_icon;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(294, 219);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
@@ -178,6 +184,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Name = "ClienteForm";
             this.Text = "ClienteForm";
             ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).EndInit();

@@ -96,6 +96,8 @@
             this.ClaveTextBox.Name = "ClaveTextBox";
             this.ClaveTextBox.Size = new System.Drawing.Size(100, 20);
             this.ClaveTextBox.TabIndex = 54;
+            this.ClaveTextBox.TextChanged += new System.EventHandler(this.ClaveTextBox_TextChanged);
+            this.ClaveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClaveTextBox_KeyPress);
             // 
             // NombresTextBox
             // 
@@ -103,6 +105,8 @@
             this.NombresTextBox.Name = "NombresTextBox";
             this.NombresTextBox.Size = new System.Drawing.Size(157, 20);
             this.NombresTextBox.TabIndex = 52;
+            this.NombresTextBox.TextChanged += new System.EventHandler(this.NombresTextBox_TextChanged);
+            this.NombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombresTextBox_KeyPress);
             // 
             // UsuarioIdNumericUpDown
             // 
@@ -153,6 +157,8 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(157, 20);
             this.EmailTextBox.TabIndex = 59;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
+            this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
             // MyErrorProvider
             // 
@@ -162,6 +168,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.Tickets_icon__1_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(305, 225);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.EliminarButton);
@@ -175,6 +183,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "UsuarioForm";
             this.Text = "UsuarioForm";
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioIdNumericUpDown)).EndInit();

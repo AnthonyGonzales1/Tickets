@@ -82,6 +82,7 @@ namespace Tickets.UI.Registros
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+            MyErrorProvider.Clear();
             Limpiar();
         }
 
@@ -100,7 +101,11 @@ namespace Tickets.UI.Registros
             usuario = LlenaClase();
 
             if (UsuarioIdNumericUpDown.Value == 0)
+            {
                 Paso = UsuarioBLL.Guardar(usuario);
+                MessageBox.Show("Guardado", "Exito",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
                 int id = Convert.ToInt32(UsuarioIdNumericUpDown.Value);
@@ -109,6 +114,9 @@ namespace Tickets.UI.Registros
                 if (usuario != null)
                 {
                     Paso = UsuarioBLL.Modificar(LlenaClase());
+                    MessageBox.Show("Modificado", "Exito",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -117,9 +125,7 @@ namespace Tickets.UI.Registros
 
             if (Paso)
             {
-                MessageBox.Show("Guardado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
+               Limpiar();
             }
 
             else
@@ -142,6 +148,35 @@ namespace Tickets.UI.Registros
                 else
                     MessageBox.Show("No se pudo eliminar!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClaveTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void NombresTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void NombresTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClaveTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

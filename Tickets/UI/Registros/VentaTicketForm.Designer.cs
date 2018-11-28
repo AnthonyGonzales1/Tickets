@@ -311,6 +311,7 @@
             this.CantidadTextBox.TabIndex = 93;
             this.CantidadTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.CantidadTextBox.TextChanged += new System.EventHandler(this.CantidadTextBox_TextChanged);
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
             // 
             // MyErrorProvider
             // 
@@ -320,6 +321,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.tickets_icon;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(609, 421);
             this.Controls.Add(this.CantidadTextBox);
             this.Controls.Add(this.TotalTextBox);
@@ -348,6 +351,7 @@
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.BuscarButton);
+            this.DoubleBuffered = true;
             this.Name = "VentaTicketForm";
             this.Text = "VentaTicketForm";
             this.Load += new System.EventHandler(this.VentaTicketForm_Load);

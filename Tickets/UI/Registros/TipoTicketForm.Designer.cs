@@ -61,6 +61,8 @@
             this.LugarTextBox.Name = "LugarTextBox";
             this.LugarTextBox.Size = new System.Drawing.Size(171, 20);
             this.LugarTextBox.TabIndex = 72;
+            this.LugarTextBox.TextChanged += new System.EventHandler(this.LugarTextBox_TextChanged);
+            this.LugarTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LugarTextBox_KeyPress);
             // 
             // TipoTicketIdNumericUpDown
             // 
@@ -146,6 +148,8 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(142, 20);
             this.DescripcionTextBox.TabIndex = 76;
+            this.DescripcionTextBox.TextChanged += new System.EventHandler(this.DescripcionTextBox_TextChanged);
+            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
             // 
             // FechaDateTimePicker
             // 
@@ -164,6 +168,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.Tickets_icon__1_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(324, 228);
             this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.DescripcionTextBox);
@@ -177,6 +183,7 @@
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.BuscarButton);
+            this.DoubleBuffered = true;
             this.Name = "TipoTicketForm";
             this.Text = "TipoTicketForm";
             ((System.ComponentModel.ISupportInitialize)(this.TipoTicketIdNumericUpDown)).EndInit();

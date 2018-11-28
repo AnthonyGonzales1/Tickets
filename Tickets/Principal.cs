@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Tickets.UI.Registros;
+using Tickets.UI.Consultas;
 
 namespace Tickets
 {
@@ -60,6 +61,41 @@ namespace Tickets
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClienteConsult ClienteConsult = new ClienteConsult();
+            ClienteConsult.MdiParent = this;
+            ClienteConsult.Show();
+        }
+
+        private void ticketToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TicketConsult TicketConsult = new TicketConsult();
+            TicketConsult.MdiParent = this;
+            TicketConsult.Show();
+        }
+
+        private void tipoTicketToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TipoTicketConsult TipoTicketConsult = new TipoTicketConsult();
+            TipoTicketConsult.MdiParent = this;
+            TipoTicketConsult.Show();
+        }
+
+        private void usuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UsuarioConsult UsuarioConsult = new UsuarioConsult();
+            UsuarioConsult.MdiParent = this;
+            UsuarioConsult.Show();
+        }
+
+        private void ventaTicketToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            VentaTicketConsult ventaTicketConsult = new VentaTicketConsult();
+            ventaTicketConsult.MdiParent = this;
+            ventaTicketConsult.Show();
         }
     }
 }

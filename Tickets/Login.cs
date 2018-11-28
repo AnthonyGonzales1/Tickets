@@ -28,13 +28,13 @@ namespace Tickets
              + "Integrated Security=true;");
 
             conexion.Open();
-            string cadena = "select Email, Clave from Usuarios where Email ='" + EmailTextBox.Text + "' and Clave = '" + ClaveTextBox.Text + "' ";
+            string cadena = "select Email, Clave from Usuarios where Email ='" + EmailTextBox.Text + "' and Clave = '" + ClavetextBox.Text + "' ";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             SqlDataReader registro = comando.ExecuteReader();
             if (registro.Read())
             {
 
-                if ((registro["Email"].ToString() == EmailTextBox.Text) && (registro["CLave"].ToString() == ClaveTextBox.Text))
+                if ((registro["Email"].ToString() == EmailTextBox.Text) && (registro["CLave"].ToString() == ClavetextBox.Text))
                 {
                     MessageBox.Show("Bienvenido");
                     Principal principal = new Principal();

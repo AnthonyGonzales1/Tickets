@@ -23,7 +23,6 @@ namespace Tickets.UI.Registros
         private void LlenarComboBox()
         {
             Repositorio<TipoTicket> Repositorio = new Repositorio<TipoTicket>(new Contexto());
-            
             TipoTicketComboBox.DataSource = Repositorio.GetList(c => true);
             TipoTicketComboBox.ValueMember = "TipoTicketId";
             TipoTicketComboBox.DisplayMember = "Descripcion";
@@ -45,7 +44,6 @@ namespace Tickets.UI.Registros
         private void Limpiar()
         {
             TicketIdNumericUpDown.Value = 0;
-            TipoTicketComboBox.SelectedIndex = 0;
             NombreEventoTextBox.Clear();
             CantidadTextBox.Clear();
             PrecioTextBox.Clear();
@@ -97,6 +95,8 @@ namespace Tickets.UI.Registros
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
+            MyErrorProvider.Clear();
+            TipoTicketComboBox.Text = ("");
             Limpiar();
         }
 
@@ -115,7 +115,12 @@ namespace Tickets.UI.Registros
             ticket = LlenaClase();
 
             if (TicketIdNumericUpDown.Value == 0)
+            {
                 Paso = TicketBLL.Guardar(ticket);
+                MessageBox.Show("Guardado", "Exito",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
             else
             {
                 int id = Convert.ToInt32(TicketIdNumericUpDown.Value);
@@ -124,6 +129,10 @@ namespace Tickets.UI.Registros
                 if (ticket != null)
                 {
                     Paso = TicketBLL.Modificar(LlenaClase());
+
+                    MessageBox.Show("Modificado", "Exito",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                     MessageBox.Show("Id no existe", "Falló",
@@ -132,8 +141,6 @@ namespace Tickets.UI.Registros
 
             if (Paso)
             {
-                MessageBox.Show("Guardado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Limpiar();
             }
 
@@ -157,6 +164,25 @@ namespace Tickets.UI.Registros
                 else
                     MessageBox.Show("No se pudo eliminar!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+
+            e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
+
+        private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsWhiteSpace(e.KeyChar);
+
+            e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
+
+        private void CantidadTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

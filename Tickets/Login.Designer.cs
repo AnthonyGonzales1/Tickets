@@ -32,9 +32,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.ClaveTextBox = new System.Windows.Forms.TextBox();
             this.IngresarButton = new System.Windows.Forms.Button();
             this.CancelarButton = new System.Windows.Forms.Button();
+            this.ClavetextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,13 +72,6 @@
             this.EmailTextBox.Size = new System.Drawing.Size(116, 20);
             this.EmailTextBox.TabIndex = 3;
             // 
-            // ClaveTextBox
-            // 
-            this.ClaveTextBox.Location = new System.Drawing.Point(70, 72);
-            this.ClaveTextBox.Name = "ClaveTextBox";
-            this.ClaveTextBox.Size = new System.Drawing.Size(116, 20);
-            this.ClaveTextBox.TabIndex = 4;
-            // 
             // IngresarButton
             // 
             this.IngresarButton.Location = new System.Drawing.Point(22, 115);
@@ -99,14 +92,24 @@
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
+            // ClavetextBox
+            // 
+            this.ClavetextBox.Location = new System.Drawing.Point(69, 72);
+            this.ClavetextBox.MaxLength = 29;
+            this.ClavetextBox.Name = "ClavetextBox";
+            this.ClavetextBox.Size = new System.Drawing.Size(116, 20);
+            this.ClavetextBox.TabIndex = 10;
+            this.ClavetextBox.UseSystemPasswordChar = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tickets.Properties.Resources.tickets_icon;
             this.ClientSize = new System.Drawing.Size(225, 161);
+            this.Controls.Add(this.ClavetextBox);
             this.Controls.Add(this.CancelarButton);
             this.Controls.Add(this.IngresarButton);
-            this.Controls.Add(this.ClaveTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -124,9 +127,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox ClaveTextBox;
         private System.Windows.Forms.Button IngresarButton;
         private System.Windows.Forms.Button CancelarButton;
+        private System.Windows.Forms.TextBox ClavetextBox;
     }
 }
 

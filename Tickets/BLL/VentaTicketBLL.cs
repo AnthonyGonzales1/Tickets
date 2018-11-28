@@ -175,7 +175,7 @@ namespace Tickets.BLL
             try
             {
                 ventaTickets = contexto.VentaTicket.Where(expression).ToList();
-                contexto.Dispose();
+                //contexto.Dispose();
             }
             catch (Exception)
             {
